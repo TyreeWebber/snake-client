@@ -4,9 +4,7 @@ let connection;
 const handleUserInput = function(key) {
   if (key === '\u0003') {
     process.exit();
-  }
-
-  if (key === 'w') {
+  } if (key === 'w') {
     connection.write('Move: up');
   } if (key === 'a') {
     connection.write('Move: left');
@@ -14,6 +12,12 @@ const handleUserInput = function(key) {
     connection.write('Move: down');
   } if (key === 'd') {
     connection.write('Move: right');
+  } if (key === '1') {
+    connection.write('Say: om nom nom');
+  } if (key === '2') {
+    connection.write('Say: Please don\'t eat me!');
+  } if (key === '3') {
+    connection.write('Say: Game Over!');
   }
 };
 
