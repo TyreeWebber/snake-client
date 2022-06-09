@@ -1,23 +1,19 @@
-const { connect } = require('./client');
+const { MOVE_UP_KEY, MOVE_RIGHT_KEY, MOVE_DOWN_KEY, MOVE_LEFT_KEY, messages } = require('./constants');
 let connection;
 
-const handleUserInput = function(key) {
+const handleUserInput = function (key) {
   if (key === '\u0003') {
     process.exit();
-  } if (key === 'w') {
+  } if (key === MOVE_UP_KEY) {
     connection.write('Move: up');
-  } if (key === 'a') {
+  } if (key === MOVE_LEFT_KEY) {
     connection.write('Move: left');
-  } if (key === 's') {
+  } if (key === MOVE_DOWN_KEY) {
     connection.write('Move: down');
-  } if (key === 'd') {
+  } if (key === MOVE_RIGHT_KEY) {
     connection.write('Move: right');
-  } if (key === '1') {
-    connection.write('Say: om nom nom');
-  } if (key === '2') {
-    connection.write('Say: Please don\'t eat me!');
-  } if (key === '3') {
-    connection.write('Say: Game Over!');
+  } if (messages[key]) {
+    connection.write(messages[key]);
   }
 };
 
